@@ -2,6 +2,8 @@
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Mathematics;
+using Unity.Transforms;
 
 namespace Shooting.Systems
 {
@@ -17,9 +19,15 @@ namespace Shooting.Systems
         public void OnUpdate(ref SystemState state)
         {
             EntityCommandBuffer ecb = new EntityCommandBuffer(Allocator.TempJob);
+            var p = SystemAPI.GetSingleton<EffectSpawner>();
+
             state.Dependency = new BulletDamageJob
             {
-                ECB = ecb, EM = state.EntityManager, enemyLookup = SystemAPI.GetComponentLookup<EnemyTag>()
+                ECB = ecb,
+                EM = state.EntityManager,
+                enemyLookup = SystemAPI.GetComponentLookup<EnemyTag>(),
+                effect = p,
+                time = SystemAPI.Time.ElapsedTime
             }.Schedule(state.Dependency);
 
             state.Dependency.Complete();
@@ -34,6 +42,8 @@ namespace Shooting.Systems
         public EntityCommandBuffer ECB;
         public EntityManager EM;
         public ComponentLookup<EnemyTag> enemyLookup;
+        public EffectSpawner effect;
+        public double time;
 
         void Execute(RefRW<BulletDamageComponent> bulletDamageComponent, Entity entity)
         {
@@ -43,6 +53,9 @@ namespace Shooting.Systems
             BulletTag bulletComponent = EM.GetComponentData<BulletTag>(bulletEntity);
             BulletDamage damageComponent = EM.GetComponentData<BulletDamage>(bulletEntity);
 
+
+            var effectEntity = ECB.Instantiate(effect.Prefab);
+            
             if ((enemyLookup.HasComponent(targetEntity)))
             {
                 ECB.AddComponent(targetEntity, new DamageEffectComponent() { Damage = damageComponent.Damage });

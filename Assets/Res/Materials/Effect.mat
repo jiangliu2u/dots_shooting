@@ -32,11 +32,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 8ddcde1e1af663c438de5c5b321918fd, type: 3}
+        m_Texture: {fileID: 2800000, guid: fc7bdaa4ad14458478ce98ced336fdcc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8ddcde1e1af663c438de5c5b321918fd, type: 3}
+        m_Texture: {fileID: 2800000, guid: fc7bdaa4ad14458478ce98ced336fdcc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:

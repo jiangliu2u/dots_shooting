@@ -6,6 +6,5 @@ namespace Shooting.Components
     {
         public double span;
         public double createTime;
-        public Entity entity;
     }
 }

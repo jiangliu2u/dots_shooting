@@ -14,6 +14,7 @@ namespace Shooting.Systems
         {
             state.RequireForUpdate<BulletTag>();
             state.RequireForUpdate<SimulationSingleton>();
+            state.RequireForUpdate<EffectSpawner>();
         }
         [BurstCompile]
         public void OnUpdate(ref SystemState state)

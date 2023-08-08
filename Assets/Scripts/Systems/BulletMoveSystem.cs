@@ -25,7 +25,7 @@ namespace Shooting.Systems
             new BulletMoveJob
             {
                 deltaTime = deltaTime,
-            }.Schedule();
+            }.ScheduleParallel();
         }
     }
 

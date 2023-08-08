@@ -45,6 +45,7 @@ public partial class MouseClickSystem : SystemBase
         {
             mouseClick.moving = false;
         }
+        mouseClick.moving = true;
 
         EntityManager.SetComponentData(entity, mouseClick);
     }

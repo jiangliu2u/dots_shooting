@@ -18,6 +18,7 @@ namespace Shooting.Systems
         public void OnCreate(ref SystemState state)
         {
             lastShootTime = 0;
+            state.RequireForUpdate<EnemyData>();
         }
 
         [BurstCompile]

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Shooting.Aspects;
@@ -14,6 +15,11 @@ public class PlayerHealthSlider : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private Slider slider;
+
+    private void Awake()
+    {
+        // Application.targetFrameRate = 60;
+    }
 
     void Start()
     {
@@ -43,6 +49,6 @@ public class PlayerHealthSlider : MonoBehaviour
             return;
         }
 
-        slider.value = health / maxHeath;
+        slider.value = (float)health / maxHeath;
     }
 }

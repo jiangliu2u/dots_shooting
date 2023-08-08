@@ -14,7 +14,7 @@ namespace Shooting.Aspects
         {
             foreach (var damageBufferElement in _damageBuffer)
             {
-                healthComponent.ValueRW.Health -= damageBufferElement.Value;
+                healthComponent.ValueRW.Health -= damageBufferElement.Damage;
             }
             _damageBuffer.Clear();
         }
