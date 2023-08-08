@@ -563,7 +563,7 @@ GameObject:
   - component: {fileID: 2081099844}
   - component: {fileID: 2081099843}
   m_Layer: 0
-  m_Name: enemy
+  m_Name: enemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 85861012251628479, guid: 876f06c22eabb654d825a97e6c81d246, type: 3}
-  generateInterval: 2
+  generateInterval: 0.5
 --- !u!4 &2081099844
 Transform:
   m_ObjectHideFlags: 0

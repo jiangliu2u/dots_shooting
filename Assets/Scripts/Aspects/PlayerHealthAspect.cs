@@ -8,5 +8,15 @@ namespace Shooting.Aspects
     {
         private readonly RefRO<PlayerTag> _playerTag;
         public readonly RefRW<HealthComponent> healthComponent;
+        private readonly DynamicBuffer<DamageBufferElement> _damageBuffer;
+        
+        public void TakeDamage()
+        {
+            foreach (var damageBufferElement in _damageBuffer)
+            {
+                healthComponent.ValueRW.Health -= damageBufferElement.Value;
+            }
+            _damageBuffer.Clear();
+        }
     }
 }

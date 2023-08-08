@@ -25,6 +25,7 @@ namespace Shooting.Authorings
                     HealthMax = 200,
                     Health = 200
                 });
+                AddBuffer<DamageBufferElement>(entity);
             }
         }
     }
